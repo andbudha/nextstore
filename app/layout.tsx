@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../assets/styles/globals.css';
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from '@/lib/constants';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'NextSotore',
-  description: 'A modern e-xommerce platform.',
+  title: APP_NAME,
+  description: APP_DESCRIPTION,
+  metadataBase: new URL(SERVER_URL),
 };
 
 export default function RootLayout({
@@ -17,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link data-rh="true" rel="icon" href="../public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className}} antialiased`}>{children}</body>
     </html>

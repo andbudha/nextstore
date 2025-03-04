@@ -4,11 +4,11 @@ const ProductPrice = ({
   value,
   className,
 }: {
-  value: number;
+  value: string;
   className?: string;
 }) => {
   //Ensure two decimal places
-  const stringValue = value.toFixed(2);
+  const stringValue = Number(value).toFixed(2);
 
   //Split into integer and decimal
   const [integerPart, decimalPart] = stringValue.split('.');

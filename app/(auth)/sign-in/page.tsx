@@ -18,11 +18,15 @@ export const metadata: Metadata = {
   description: 'Sign in to your account',
 };
 
-export default async function SignInPage() {
+export default async function SignInPage(props: {
+  searchParams: Promise<{ callbackUrl: string }>;
+}) {
+  const { callbackUrl } = await props.searchParams;
+
   const session = await auth();
 
   if (session) {
-    redirect('/');
+    redirect(callbackUrl || '/');
   }
   return (
     <div className="w-full max-w-md mx-auto">

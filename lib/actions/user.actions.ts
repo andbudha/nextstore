@@ -1,5 +1,5 @@
 'use server';
-import { signUpFormSchema } from '../validators';
+import { signInFormSchema, signUpFormSchema } from '../validators';
 import { signIn, signOut } from '@/auth';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { hashSync } from 'bcryptjs';
@@ -11,7 +11,7 @@ export async function signInWithCredentials(
   formData: FormData
 ) {
   try {
-    const user = signUpFormSchema.parse({
+    const user = signInFormSchema.parse({
       email: formData.get('email') as string,
       password: formData.get('password') as string,
     });

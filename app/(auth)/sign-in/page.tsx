@@ -47,7 +47,6 @@ export default async function SignInPage(props: {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Add Form Component Here */}
           <CredentialsSigninForm />
         </CardContent>
       </Card>
